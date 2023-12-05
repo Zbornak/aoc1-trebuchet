@@ -15,19 +15,29 @@ import (
 
 func main() {
 	// import calibration document
-	content, err := os.ReadFile("calibration-document.txt")
+	contents, err := os.ReadFile("calibration-document.txt")
 	if err != nil {
 		log.Fatal(err)
 	}
 
-	var filteredContent string
+	// convert []byte to string
+	calDoc := string(contents)
 
-	// remove letter runes from calibration document
-	for _, code := range content {
-		if code < 64 || code > 122 {
-			filteredContent += string(code)
+	// extract numbers from calDoc
+	numString := extractNums(calDoc)
+
+	// take first and last rune from numString and convert to int
+
+	fmt.Println(numString)
+}
+
+func extractNums(str string) []string {
+	var numberString []string
+	for _, digit := range str {
+		if digit < 64 || digit > 122 {
+			numberString = append(numberString, string(digit))
 		}
 	}
 
-	fmt.Println(filteredContent)
+	return numberString
 }
