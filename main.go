@@ -30,7 +30,14 @@ func main() {
 	// split numbers into separate slice entries
 	splitNumString := strings.Fields(numString)
 
-	fmt.Println(splitNumString)
+	//fmt.Println(splitNumString)
+
+	//var intSlice []int
+	var firstDigit string
+	for _, digit := range splitNumString {
+		firstDigit = digit[:1]
+		fmt.Println(firstDigit)
+	}
 }
 
 func extractNums(str string) string {
