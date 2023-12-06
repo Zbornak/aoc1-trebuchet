@@ -11,6 +11,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"strconv"
 	"strings"
 )
 
@@ -32,14 +33,24 @@ func main() {
 
 	//fmt.Println(splitNumString)
 
-	//var intSlice []int
+	var intSlice []int
 	var firstDigit string
 	var lastDigit string
 	for _, digit := range splitNumString {
+		// get first and last number of each line and put together
 		firstDigit = digit[:1]
 		lastDigit = digit[len(digit)-1:]
-		fmt.Printf("%s%s\n", firstDigit, lastDigit)
+		joinedDigits := firstDigit + lastDigit
+
+		// convert strings to ints and append to intSlice slice
+		intNum, err := strconv.Atoi(joinedDigits)
+		if err != nil {
+			log.Fatal(err)
+		}
+		intSlice = append(intSlice, intNum)
 	}
+
+	fmt.Println(intSlice)
 }
 
 func extractNums(str string) string {
