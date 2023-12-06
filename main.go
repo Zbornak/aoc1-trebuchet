@@ -27,7 +27,7 @@ func main() {
 	// extract numbers from calDoc
 	numString := extractNums(calDoc)
 
-	// take first and last rune from numString and convert to int
+	// split numbers into separate slice entries
 	splitNumString := strings.Fields(numString)
 
 	fmt.Println(splitNumString)
