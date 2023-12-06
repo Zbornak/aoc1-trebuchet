@@ -11,6 +11,7 @@ import (
 	"fmt"
 	"log"
 	"os"
+	"strings"
 )
 
 func main() {
@@ -27,15 +28,16 @@ func main() {
 	numString := extractNums(calDoc)
 
 	// take first and last rune from numString and convert to int
+	splitNumString := strings.Fields(numString)
 
-	fmt.Println(numString)
+	fmt.Println(splitNumString)
 }
 
-func extractNums(str string) []string {
-	var numberString []string
+func extractNums(str string) string {
+	var numberString string
 	for _, digit := range str {
 		if digit < 64 || digit > 122 {
-			numberString = append(numberString, string(digit))
+			numberString += string(digit)
 		}
 	}
 
