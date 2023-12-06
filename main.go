@@ -34,9 +34,11 @@ func main() {
 
 	//var intSlice []int
 	var firstDigit string
+	var lastDigit string
 	for _, digit := range splitNumString {
 		firstDigit = digit[:1]
-		fmt.Println(firstDigit)
+		lastDigit = digit[len(digit)-1:]
+		fmt.Printf("%s%s\n", firstDigit, lastDigit)
 	}
 }
 
