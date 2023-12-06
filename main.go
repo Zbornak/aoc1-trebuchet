@@ -25,6 +25,8 @@ func main() {
 	// convert []byte to string
 	calDoc := string(contents)
 
+	// part 2: convert written numbers into digits
+
 	// extract numbers from calDoc
 	numString := extractNums(calDoc)
 
