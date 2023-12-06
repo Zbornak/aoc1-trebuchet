@@ -26,6 +26,15 @@ func main() {
 	calDoc := string(contents)
 
 	// part 2: convert written numbers into digits
+	calDoc = replaceNums(calDoc, "one", "1")
+	calDoc = replaceNums(calDoc, "two", "2")
+	calDoc = replaceNums(calDoc, "three", "3")
+	calDoc = replaceNums(calDoc, "four", "4")
+	calDoc = replaceNums(calDoc, "five", "5")
+	calDoc = replaceNums(calDoc, "six", "6")
+	calDoc = replaceNums(calDoc, "seven", "7")
+	calDoc = replaceNums(calDoc, "eight", "8")
+	calDoc = replaceNums(calDoc, "nine", "9")
 
 	// extract numbers from calDoc
 	numString := extractNums(calDoc)
@@ -71,4 +80,9 @@ func extractNums(str string) string {
 	}
 
 	return numberString
+}
+
+func replaceNums(str string, wordToReplace string, replaceWith string) string {
+	newCalDoc := strings.Replace(str, wordToReplace, replaceWith, -1)
+	return newCalDoc
 }
