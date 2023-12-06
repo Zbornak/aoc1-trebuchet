@@ -51,6 +51,14 @@ func main() {
 	}
 
 	fmt.Println(intSlice)
+
+	// add all the numbers together
+	var calibrationValuesTotal int
+	for i := 0; i < len(intSlice)-1; i++ {
+		calibrationValuesTotal += intSlice[i]
+	}
+
+	fmt.Printf("The answer is %d.\n", calibrationValuesTotal)
 }
 
 func extractNums(str string) string {
