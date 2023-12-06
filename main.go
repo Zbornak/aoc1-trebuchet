@@ -31,18 +31,16 @@ func main() {
 	// split numbers into separate slice entries
 	splitNumString := strings.Fields(numString)
 
-	//fmt.Println(splitNumString)
-
+	// get first and last number of each line and put together
 	var intSlice []int
 	var firstDigit string
 	var lastDigit string
 	for _, digit := range splitNumString {
-		// get first and last number of each line and put together
 		firstDigit = digit[:1]
 		lastDigit = digit[len(digit)-1:]
 		joinedDigits := firstDigit + lastDigit
 
-		// convert strings to ints and append to intSlice slice
+		// convert strings to ints and append to int slice
 		intNum, err := strconv.Atoi(joinedDigits)
 		if err != nil {
 			log.Fatal(err)
@@ -54,10 +52,11 @@ func main() {
 
 	// add all the numbers together
 	var calibrationValuesTotal int
-	for i := 0; i < len(intSlice)-1; i++ {
+	for i := 0; i < len(intSlice); i++ {
 		calibrationValuesTotal += intSlice[i]
 	}
 
+	// print total
 	fmt.Printf("The answer is %d.\n", calibrationValuesTotal)
 }
 
